@@ -26,7 +26,7 @@ app.use("/api/auth", authRoute);
 
 app.use("/api/moderator", moderatorRoute)
 
-app.use("/api/profile",ensureAuthenticate, profileRoute);
+app.use("/profile",ensureAuthenticate, profileRoute);
 
 app.use("/api/admin",ensureAuthenticate,authorize(["admin"]) ,adminRoute);
 
