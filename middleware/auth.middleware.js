@@ -18,9 +18,6 @@ const ensureAuthenticate = async(req,res,next)=>{
                 message: "Access token invalid or expired"
             });
     }
-    
-    console.log(AccessToken);
-
         try {
             const decodeAccessToken =  jwt.verify(AccessToken, process.env.SECRET_KEY)
             req.AccessToken = { value: AccessToken, exp: decodeAccessToken.exp };
