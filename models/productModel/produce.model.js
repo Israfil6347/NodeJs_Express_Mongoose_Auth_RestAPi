@@ -1,9 +1,10 @@
+const { string } = require('joi');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
   productId: {
-    type: Number,
+    type: String,
     unique: true
   },
   productName: {
@@ -20,7 +21,7 @@ const productSchema = new Schema({
     required: true
   },
   productStatus: {
-    type: [String],
+    type: [],
     required: true
   },
   createUser: {

@@ -15,13 +15,16 @@ const getProductController=async (req, res)=>{
 const postProductController = async (req,res)=>{
     try {
         const ProductData = mapRequestToProductModel(req.body)
-        
+
         const { error } = validateProduct(ProductData)
+       
         if (error) {
             return res.status(400).json({ message: error.details[0].message });
         }
 
-        const addStatus = await Status.findOne({_id: ProductData.status} )
+        const addStatus = await Status.findOne({_id: ProductData.productStatus} )
+      
+        console.log("status",addStatus)
 
         const product  =new Product({
             productId : uuidv4(),
@@ -34,7 +37,12 @@ const postProductController = async (req,res)=>{
             },
             createUser: req.user.id,
         })
+
+
+
         const savedProduct = await product.save();
+
+        console.log(savedProduct)
          res.send({
             message: "Product is created successfully",
             data: mapProductModelToResponse(savedProduct)
