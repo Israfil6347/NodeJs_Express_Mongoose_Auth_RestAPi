@@ -25,11 +25,12 @@
     "passport-jwt": "^4.0.1",
     "uuid": "^10.0.0"
   },
-   "compilerOptions": {
+  "compilerOptions": {
     "module": "CommonJS",
     "target": "ES6",
     "checkJs": true
   },
-  "exclude": ["node_modules"]
-
+  "exclude": [
+    "node_modules"
+  ]
 }

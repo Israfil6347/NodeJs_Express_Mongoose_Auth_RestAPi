@@ -7,6 +7,10 @@ const userInvalidTokenModel= require("../../models/userModel/userInvalidToken.mo
 const ensureAuthenticate = require("../../middleware/auth.middleware");
 const { LogoutController } = require("../../controller/userController/logout.controller");
 const { RefreshToken } = require("../../controller/userController/refreshToken.controller");
+const Users = require("../../models/userModel/user.model")
+// const {authenticator} = require("otplib")
+
+
 
 
 router.post("/register", registerController);
@@ -14,6 +18,9 @@ router.post("/login", loginController);
 
 router.get("/logout", ensureAuthenticate,LogoutController)
 router.post("/refresh-token",RefreshToken );
+
+
+
 
 
 module.exports = router;
